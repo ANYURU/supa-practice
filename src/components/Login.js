@@ -11,54 +11,49 @@ const loginSchema = yup.object().shape({
 function Login() {
     const [isSubmitting, setSubmitting] = React.useState(false)
     return (
-      <div style={{display:'flex', justifyContent:'center', alignItems:'center', border:'solid 1px', height:'100vh'}}>
-        <div>
+      <div class="flex justify-center items-center h-screen">
+        <div class="shadow-lg rounded-md w-1/4 h-2/5 flex items-center justify-center">
             <Formik
             initialValues={{username:'', password:''}}
             validationSchema={loginSchema}
             onSubmit={async (values, { setSubmitting }) => {
-                const { user, session, error } = await supabase.auth.signUp({
+                const { user, session, error } = await supabase.auth.signIn({
                     email: values.username,
                     password: values.password,
                 })
                 console.log(user)
                 if(error) {
-                    alert(error)
+                    console.log(error)
                 } else {
                     alert('Voila, Successfully Signed Up')
                 }
-
-            
-
             }}
             >
                 {({ errors, touched }) => (
-                    <Form>
-                        <div>
-                            <label>Username</label>
+                    <Form >
+                        <div class="flex flex-col items-center">
+                            <div class="flex h-16 flex-col items-start mb-2"> 
+                                <label >Username</label>
+                                <Field 
+                                name='username'
+                                type='email'
+                                placeholder='johndoe@gmail.com'
+                                />
+                                {(errors.username && touched.username) && <p class="text-xs">{ errors.username }</p>}
+                            </div>
+                            <div class="flex h-16 flex-col items-start mb-2">
+                                <label>Password</label>
+                                <Field
+                                name='password'
+                                type='password' 
+                                placeholder='***********'                        
+                                />
+                                {errors.password && touched.password && <p class="text-xs">{ errors.password }</p>}
+                            </div>
+                            <button type='submit' disabled={isSubmitting}>
+                                Login
+                            </button>    
                         </div>
-                        <div>
-                            <Field 
-                            name='username'
-                            type='email'
-                            placeholder='johndoe@gmail.com'
-                            />
-                        </div>
-                        {(errors.username && touched.username) && <p>{errors.username}</p>}
-                        <div>
-                            <label>Password</label>
-                        </div>
-                        <div>
-                            <Field
-                            name='password'
-                            type='password' 
-                            placeholder='***********'                        
-                            />
-                        </div>
-                        {errors.password && touched.password && <p>{errors.password}</p>}
-                        <button type='submit' disabled={isSubmitting}>
-                            Login
-                        </button>    
                     </Form>  
                 )}
             </Formik>
