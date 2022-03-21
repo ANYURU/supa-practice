@@ -1,53 +1,54 @@
-import React from 'react'
+import { useState } from 'react'
 import { Form, Field, Formik } from 'formik'
 import * as yup from 'yup'
 import supabase from './helpers/supabase/supabase'
 import { Link } from 'react-router-dom'
 
-const SIGN_UP_SCHEMA =  yup.object.shape({
-    phoneNumber: yup.string().matches('/^[0-9]{10}$/gm', 'Invalid phone number').required('Phone number is required.'),
+const SIGNUP_SCHEMA = yup.object().shape({
+    username: yup.string().required('Email/ phone number is required!'),
+    password: yup.string().required('Password is required!')
 })
 
 const Signup = () => {
-    const [submitting, setSubmitting] = React.useState(false)
+    const [ submitting, setSubmitting ] = useState(false)
+    const [ phoneNumber, setPhoneNumber ] = useState(true)
+   
+    return (
+        <Formik
+            initialValues={{phoneNumber:'', password:''}}
+            validationSchema={SIGNUP_SCHEMA}
+            onSubmit={ async ( values ) => {
+                const { user, session, error } = await supabase.auth.signUp(
+                    
 
-  return (
-    <Formik
-        validationSchema={SIGN_UP_SCHEMA}
-        initialValues={{phoneNumber:''}}
-        onSubmit={ async (values) => {
-            const { user, session, error } = await supabase.auth.signUp({
-                phone: values.phoneNumber
-            })
-            console.log(user)
-            console.log(session)
-            console.log(error)
-        }}
-    >
-        {({
-            touched,
-            errors,
-            isValid
-        }) => (
-            <Form>
-                <div class="flex flex-col items-center">
-                    <div class="flex h-16 flex-col items-start mb-2"> 
-                        <label >Username</label>
-                        <Field 
-                        name='phoneNumber'
-                        type='tel'
-                        placeholder='0772519722'
-                        />
-                        {(errors.username && touched.username) && <p class="text-xs">{ errors.username }</p>}
-                    </div>
-                    <div class="h-12">
-                        <p>Resend OPT!</p>
-                        <Link>Want to change number</Link>
-                    </div>
-                    <button>Verify</button>
-                </div>
-            </Form>
-        )}
+
+                ) 
+            }}
+        >
+            {({
+                touched,
+                errors,
+                isValid
+            }) => (
+                <div class="flex items-center justify-center h-screen">
+                    <Form>
+                        <div class="flex flex-col items-center">
+                            <div class="flex h-16 flex-col items-start mb-2"> 
+                                <label>Phone Number or Email</label>
+                                <Field 
+                                name='phoneNumber'
+                                type='text'
+                                placeholder='Enter phone number/ email.'
+                                />
+                                {(errors.phoneNumber && touched.phoneNumber) && <p class="text-xs">{ errors.phoneNumber }</p>}
+                            </div>
+                            <div class="flex justify-center align-center w-full">
+                                <button type='submit'>Submit</button> 
+                            </div>
+                        </div>   
+                    </Form>
+                </div>    
+            )}
     </Formik>
   )
 }

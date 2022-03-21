@@ -2,14 +2,17 @@ import React from 'react';
 import supabase from './helpers/supabase/supabase';
 import {Formik, Field, Form} from 'formik';
 import * as yup from 'yup';
+import { Link, useNavigate } from 'react-router-dom'
 
 const loginSchema = yup.object().shape({
-    username: yup.string().required('Username is required!'),
-    password: yup.string().required('Password is required!')
+    username: yup.string().required('Email/Phone number is required!'),
+    password: yup.string().min(6).required('Password is required!')
 })
 
-function Login() {
+ const Login = () => {
     const [isSubmitting, setSubmitting] = React.useState(false)
+    const navigate = useNavigate()
+
     return (
       <div class="flex justify-center items-center h-screen">
         <div class="shadow-lg rounded-md w-1/4 h-2/5 flex items-center justify-center">
@@ -25,19 +28,18 @@ function Login() {
                 if(error) {
                     console.log(error)
                 } else {
-                    alert('Voila, Successfully Signed Up')
+                    alert('Successfully loggedIn')
                 }
             }}
             >
-                {({ errors, touched }) => (
+                {({ errors, touched, isValid }) => (
                     <Form >
                         <div class="flex flex-col items-center">
                             <div class="flex h-16 flex-col items-start mb-2"> 
-                                <label >Username</label>
+                                <label>Username</label>
                                 <Field 
                                 name='username'
-                                type='email'
-                                placeholder='johndoe@gmail.com'
+                                placeholder='Enter email/Phone number'
                                 />
                                 {(errors.username && touched.username) && <p class="text-xs">{ errors.username }</p>}
                             </div>
@@ -46,13 +48,15 @@ function Login() {
                                 <Field
                                 name='password'
                                 type='password' 
-                                placeholder='***********'                        
+                                placeholder='Enter password'                        
                                 />
                                 {errors.password && touched.password && <p class="text-xs">{ errors.password }</p>}
                             </div>
-                            <button type='submit' disabled={isSubmitting}>
-                                Login
-                            </button>    
+                            <Link to='/forgotpassword'>forgot password</Link>
+                            <button type='submit' disabled={!isValid}>
+                                login
+                            </button>  
+                            <div>Do not have an account? <button onClick={navigate('/signup')}>signup</button></div>
                         </div>
                     </Form>  
                 )}
