@@ -3,6 +3,7 @@ import supabase from './helpers/supabase/supabase';
 import {Formik, Field, Form} from 'formik';
 import * as yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom'
+import logo from '../assets/media/images/logo.png'
 import Signup from './Signup';
 
 const loginByEmailSchema = yup.object().shape({
@@ -26,7 +27,8 @@ const loginByPhoneSchema = yup.object().shape({
     }, [ phoneLogin ])
 
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen flex-col">
+        <div class="border-2 mb-4 w-32 h-28 "><img src={logo}/></div>
         <div className="shadow-lg w-3/12 h-2/5 flex flex-col">
           <div className="flex justify-between h-12 items-center w-full mb-3 border-black">
             <button id="loginByPhone" className="flex-1 h-full align-middle p-4 bg-blue-700" onClick={() => {
