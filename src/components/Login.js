@@ -4,7 +4,8 @@ import {Formik, Field, Form} from 'formik';
 import * as yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/media/images/logo.png'
-import Signup from './Signup';
+import { useAuth } from './contexts/auth';
+
 
 const loginByEmailSchema = yup.object().shape({
     username: yup.string().required('Email is required!'),
@@ -20,6 +21,7 @@ const loginByPhoneSchema = yup.object().shape({
  const Login = () => {
     const [ isSubmitting, setSubmitting] = useState(false)
     const [ phoneLogin, setPhoneLogin ] = useState(true)
+    const { setUser } = useAuth()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -28,7 +30,7 @@ const loginByPhoneSchema = yup.object().shape({
 
     return (
       <div className="flex justify-center items-center h-screen flex-col">
-        <div class="border-2 mb-4 w-32 h-28 "><img src={logo}/></div>
+        <div className="mb-4 w-32 h-28 "><img src={logo}/></div>
         <div className="shadow-lg w-3/12 h-2/5 flex flex-col">
           <div className="flex justify-between h-12 items-center w-full mb-3 border-black">
             <button id="loginByPhone" className="flex-1 h-full align-middle p-4 bg-blue-700" onClick={() => {
@@ -50,23 +52,26 @@ const loginByPhoneSchema = yup.object().shape({
             initialValues={{username:'', password:''}}
             validationSchema={phoneLogin ? loginByPhoneSchema : loginByEmailSchema}
             onSubmit={async (values, { setSubmitting }) => {
-                const { user, session, error } = await supabase.auth.signIn(
-                    phoneLogin ? ({
-                        phone: values.username,
-                        password: values.password
-                    })
-                    :
-                    ({
-                        email: values.username,
-                        password: values.password,
-                    })
-                )
-                console.log(user)
-                if(error) {
-                    alert(error.message)
-                } else {
-                    alert('Successfully loggedIn')
-                }
+                // const { user, session, error } = await supabase.auth.signIn(
+                //     phoneLogin ? ({
+                //         phone: values.username,
+                //         password: values.password
+                //     })
+                //     :
+                //     ({
+                //         email: values.username,
+                //         password: values.password,
+                //     })
+                // )
+                // console.log(user)
+                // if(error) {
+                    
+                //     alert(error.message)
+                // } else {
+                //     alert('Successfully loggedIn')
+                // }
+                setUser(true)
+                navigate('/home')
             }}
             >
                 {({ errors, touched, isValid }) => (

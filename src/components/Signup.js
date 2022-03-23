@@ -48,6 +48,7 @@ const Signup = () => {
                             <div class="flex justify-center align-center w-full">
                                 <button 
                                     type='submit'
+                                    disabled={isValid}
                                 >Submit</button> 
                             </div>
                         </div>   
