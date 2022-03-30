@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ForgotPassword from './components/ForgotPassword';
 import PrivateRoute from './components/routes/PrivateRoute';
 import { AuthProvider } from './components/contexts/auth'
+import { OTPProvider } from './components/contexts/otp'
 
 
 function App() {
@@ -17,8 +18,11 @@ function App() {
             <Route path='/' exact element={<Login />} />
             <Route path='/login' exact element={<Login />} />
             <Route path='/forgotpassword' exact element={<ForgotPassword />} />
-            <Route path='/signup' exact element={<Signup />} />
-            <Route path='/verify' exact element={<Verify />} />
+            <OTPProvider>
+              <Route path='/signup' exact element={<Signup />} />
+              <Route path='/verify' exact element={<Verify />} />
+              
+            </OTPProvider>
             <Route element={<PrivateRoute />}>
               <Route path='/home' element={<Home />}/>
             </Route>

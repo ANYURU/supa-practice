@@ -1,5 +1,4 @@
 import {
-    Children,
     createContext,
     useContext,
     useState
@@ -12,7 +11,7 @@ export const useOTP = () => {
 }
 
 
-function OTPProvider({children}) {
+function OTPProvider({ children }) {
     const [ OTP, setOTP ] = useState(null)
     const [ phone, setPhone ] = useState('')
 
@@ -30,4 +29,4 @@ function OTPProvider({children}) {
     )
 }
 
-export default OTP
+export default OTPProvider
