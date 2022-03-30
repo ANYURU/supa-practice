@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/auth'
 
 function PrivateRoute() {
   const { user } = useAuth()
-
+  console.log(user)
   return user ? <Outlet /> : <Navigate to='/' />
 }
 
