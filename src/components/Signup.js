@@ -5,7 +5,8 @@ import * as yup from 'yup'
 
 
 const SIGNUP_SCHEMA = yup.object().shape({
-    phone: yup.string().required('Phone number is required!'),  
+    countryCode: yup.string().required('Please select country code'),
+    phone: yup.string().matches('/^[0-9]{7}$', 'The code should be 7 digits').required('Phone number is required!'),  
 })
 
 
@@ -18,16 +19,16 @@ const Signup = () => {
     
     return (
         <Formik
-            initialValues={{phone:''}}
+            initialValues={{phone:'', countryCode:''}}
             validationSchema={SIGNUP_SCHEMA}
             onSubmit={ async ( values ) => {
-                //[*] Generate a one time password and set it for some time.
+                //[] Generate a one time password and set it for some time.
                 // const OTP = generateOTP()
                 
                 //[*] Navigate to the verification component.
                 navigate('/verify')
                 
-                //[*] Invoke the SMS service provider to send a verification code to the phone number.
+                //[] Invoke the SMS service provider to send a verification code to the phone number.
 
 
                 
@@ -50,6 +51,15 @@ const Signup = () => {
                             <div className="flex h-18 flex-col items-start mb-2"> 
                                 
                                 <label>Enter phone number.</label>
+                                <Field 
+                                name='countryCode'
+                                as='select'
+                                >
+                                    <option value={'+256'}>Uga +256</option>
+                                    <option value={'+257'}>ken +257</option>
+                                    <option value={'+258'}>Tan +258</option>
+
+                                </Field>
                                 <Field 
                                 name='phone'
                                 type='text'
