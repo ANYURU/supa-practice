@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import supabase from './helpers/supabase/supabase';
 import { Formik, Field, Form } from 'formik';
 import * as yup from 'yup';
@@ -12,16 +11,13 @@ const loginByPhoneSchema = yup.object().shape({
 })
 
  const Login = () => {
-    const { user, setUser } = useAuth()
+    const { setUser } = useAuth()
     const navigate = useNavigate()
 
-    useEffect(() => {
-        user ? navigate('/home') : navigate('/')
-    }, [ user ])
 
     return (
       <div className="flex justify-center items-center h-screen flex-col">
-        <div className="mb-4 w-32 h-28 "><img src={logo}/></div>
+        <div className="mb-4 w-32 h-28 "><img src={logo} alt="Sacco application"/></div>
         <div className="shadow-lg w-3/12 h-2/5 flex flex-col justify-center rounded-md">
             <Formik
             initialValues={{phone:'', password:''}}
@@ -36,8 +32,10 @@ const loginByPhoneSchema = yup.object().shape({
                     alert(error.message)
                 } else {
                     alert('Successfully loggedIn')
+                    console.log(user)
+                    console.log(session)
                 }
-                setUser(true)
+                setUser(user)
                 // navigate('/home', { replace: true })]
                 navigate('/home')
             }}

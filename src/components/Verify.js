@@ -1,7 +1,6 @@
 import { Form, Field, Formik } from 'formik'
 import { useNavigate, Link } from 'react-router-dom'
 import * as yup from 'yup'
-import { useState } from 'react'
 
 const verificationSchema = yup.object().shape({
     otp: yup.string().matches('/^[0-9]{6}$', 'The code should be 6 digits').required('Verification code is required')
