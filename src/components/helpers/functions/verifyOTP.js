@@ -7,4 +7,4 @@
  * @returns {Boolean} true if the two parameters match otherwise false
  */
 
-export const verifyOTP = ( submittedOTP, generatedOTP ) => submittedOTP === generatedOTP ? true: false
+export const verifyOTP = ( submittedOTP, generatedOTP ) => Number(submittedOTP) === Number(generatedOTP) ? true: false
