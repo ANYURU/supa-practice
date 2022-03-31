@@ -44,10 +44,10 @@ const Signup = () => {
                 touched,
                 errors,
             }) => (
-                <div class="flex items-center justify-center h-screen">
+                <div className="flex items-center justify-center h-screen">
                     <Form>
-                        <div class="flex flex-col items-center w-8">
-                            <div class="flex h-18 flex-col items-start mb-2"> 
+                        <div className="flex flex-col items-center w-8">
+                            <div className="flex h-18 flex-col items-start mb-2"> 
                                 
                                 <label>Enter phone number.</label>
                                 <Field 
@@ -57,7 +57,7 @@ const Signup = () => {
                                 />
                                 {(errors.phone && touched.phone) && <p class="text-xs">{ errors.phone }</p>}
                             </div>
-                            <div class="flex justify-center align-center w-full">
+                            <div className="flex justify-center align-center w-full">
                                 <button 
                                     type='submit'
                                 >Submit</button> 
