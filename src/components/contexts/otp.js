@@ -11,7 +11,7 @@ export const useOTP = () => {
 }
 
 
-function OTPProvider({ children }) {
+export function OTPProvider({ children }) {
     const [ OTP, setOTP ] = useState(null)
     const [ phone, setPhone ] = useState('')
 
@@ -23,10 +23,10 @@ function OTPProvider({ children }) {
     }
 
     return (
-        <OTPProvider.Provider value={initialValues}>
+        <OTPContext.Provider value={ initialValues }>
             {children}
-        </OTPProvider.Provider>
+        </OTPContext.Provider>
     )
 }
 
-export default OTPProvider
+// export default OTPProvider

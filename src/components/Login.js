@@ -12,14 +12,12 @@ const loginByPhoneSchema = yup.object().shape({
 })
 
  const Login = () => {
-    const [ isSubmitting, setSubmitting] = useState(false)
-    const [ phoneLogin, setPhoneLogin ] = useState(true)
     const { user, setUser } = useAuth()
     const navigate = useNavigate()
 
     useEffect(() => {
         user ? navigate('/home') : navigate('/')
-    }, [ phoneLogin, user ])
+    }, [ user ])
 
     return (
       <div className="flex justify-center items-center h-screen flex-col">
@@ -28,7 +26,7 @@ const loginByPhoneSchema = yup.object().shape({
             <Formik
             initialValues={{phone:'', password:''}}
             validationSchema={ loginByPhoneSchema }
-            onSubmit={async (values, { setSubmitting }) => {
+            onSubmit={async (values) => {
                 const { user, session, error } = await supabase.auth.signIn({
                     phone: values.phone,
                     password: values.password,

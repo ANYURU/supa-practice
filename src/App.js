@@ -13,21 +13,20 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            <Route path='/' exact element={<Login />} />
-            <Route path='/login' exact element={<Login />} />
-            <Route path='/forgotpassword' exact element={<ForgotPassword />} />
-            <OTPProvider>
-              <Route path='/signup' exact element={<Signup />} />
-              <Route path='/verify' exact element={<Verify />} />
-              
-            </OTPProvider>
-            <Route element={<PrivateRoute />}>
-              <Route path='/home' element={<Home />}/>
-            </Route>
-          </Routes>
-        </AuthProvider>
+        <OTPProvider>
+          <AuthProvider>
+            <Routes>
+              <Route path='/' exact element={<Login />} />
+              <Route path='/login' exact element={<Login />} />
+              <Route path='/forgotpassword' exact element={<ForgotPassword />} />
+                <Route path='/signup' exact element={<Signup />} />
+                <Route path='/verify' exact element={<Verify />} />
+              <Route element={<PrivateRoute />}>
+                <Route path='/home' element={<Home />}/>
+              </Route>
+            </Routes>
+          </AuthProvider>
+        </OTPProvider>
       </BrowserRouter>
     </div>
     
