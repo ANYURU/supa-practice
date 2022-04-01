@@ -5,10 +5,15 @@ import { countryCodes } from './helpers/data/countryCodes'
 import { useOTP } from './contexts/otp'
 import { generateOTP } from './helpers/functions/generateOPT'
 
+const phoneNumbers = [
+    '772519722',
+    '700820686',
+    '757501751',
+]
 
 const SIGNUP_SCHEMA = yup.object().shape({
     countryCode: yup.string().required('Please select country code'),
-    phone: yup.string().matches(/^[0-9]{9}/gm, 'The code should be 9 digits').required('Phone number is required!'),  
+    phone: yup.string().matches(/^[0-9]{9}/gm, 'Invalid phone number!').notOneOf(phoneNumbers, 'Phone Number already taken').required('Phone number is required!'),  
 })
 
 
