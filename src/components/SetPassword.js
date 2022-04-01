@@ -3,6 +3,8 @@ import { useOTP } from './contexts/otp'
 import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import logo from '../assets/media/images/logo.png'
+import supabase from '../components/helpers/supabase/supabase'
+import { useNavigate } from 'react-router-dom'
 
 
 const passwordValidationSchema = yup.object().shape({
@@ -11,8 +13,10 @@ const passwordValidationSchema = yup.object().shape({
         .oneOf([yup.ref('password')], 'Password must be the same!')
         .required('Required!')
 })
+
 export default function SetPassword() {
     const { phone } = useOTP()
+    const navigate = useNavigate()
 
     return (
         <div className='flex h-screen justify-center items-center flex-col'>
@@ -21,14 +25,42 @@ export default function SetPassword() {
                 <Formik
                 initialValues={{password:'', passwordConfirm: ''}}
                 validationSchema={passwordValidationSchema}
-                onSubmit = {( values, errors ) => {
-                    // if(values.password !== values.passwordMatch) {
-                    //     errors.passwordConfirm = 'The passwords do not match.'
-                    // } else{
+                onSubmit = {async ( values ) => {
+                    !phone && navigate('/login')
+                    const { user, session, error } = await supabase.auth.signUp(
+                        {
+                            phone: phone,
+                            password: values.password,
+                        }, 
+                        { 
+                            data: {
+                                name:'',
+                                email:'',
+                                phoneNumber:'',
+                                dob:'',
+                                address:'',
+                                gender:'',
+                                id: '',
+                                passportNumber:'',
+                                employer:{
+                                    name:'',
+                                    address:'',
+                                    position:'',
+                                    workStation:'',
+                                }
+                            } 
+                        }
+                    )
 
-                    // }
+                    if(user) {
+                        console.log(user)
+                    } 
 
+                    if(error) {
+                        console.log(error)
+                    }
 
+                    console.log(session)
                 }}
                 >
                     {({ errors, touched, values }) => (
@@ -56,13 +88,17 @@ export default function SetPassword() {
                                     />
                                     {errors.passwordConfirm && touched.passwordConfirm && <p className="text-xs">{ errors.passwordConfirm }</p>}
                                 </div>
+                                <button 
+                                    type='submit' 
+                                >
+                                    Signup
+                                </button>
                             </div>
                         </Form>
                     )}
 
                 </Formik>
             </div>
-
         </div>
     )
 }
