@@ -1,7 +1,7 @@
 import supabase from './helpers/supabase/supabase';
 import { Formik, Field, Form } from 'formik';
 import * as yup from 'yup';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import logo from '../assets/media/images/logo.png'
 import { useAuth } from './contexts/auth';
 
@@ -11,11 +11,19 @@ const loginByPhoneSchema = yup.object().shape({
 })
 
  const Login = () => {
-    const { setUser } = useAuth()
+    const { user, setUser } = useAuth()
     const navigate = useNavigate()
 
+    const signIn = async ( phone, password ) => {
+        const { user, session, error } = await supabase.auth.signIn({
+            phone: phone,
+            password: password
+        })
+        return { user, session, error }
+    }
 
-    return (
+
+    return user ?  <Navigate to='/home'/> : (
       <div className="flex justify-center items-center h-screen flex-col">
         <div className="mb-4 w-32 h-28 "><img src={logo} alt="Sacco application"/></div>
         <div className="shadow-lg w-3/12 h-2/5 flex flex-col justify-center rounded-md">
@@ -23,21 +31,13 @@ const loginByPhoneSchema = yup.object().shape({
             initialValues={{phone:'', password:''}}
             validationSchema={ loginByPhoneSchema }
             onSubmit={async (values) => {
-                const { user, session, error } = await supabase.auth.signIn({
-                    phone: values.phone,
-                    password: values.password,
-
-                })
-                if(error) {
-                    alert(error.message)
+                const {user, error} = await signIn(values.phone, values.password)
+                if (error) {
+                    console.log(error)
                 } else {
-                    alert('Successfully loggedIn')
-                    console.log(user)
-                    console.log(session)
+                    setUser(user)
+                    navigate('/home')
                 }
-                setUser(user)
-                // navigate('/home', { replace: true })]
-                navigate('/home')
             }}
             >
                 {({ errors, touched }) => (
@@ -61,7 +61,7 @@ const loginByPhoneSchema = yup.object().shape({
                                     />
                                     {errors.password && touched.password && <p className="text-xs">{ errors.password }</p>}
                                 </div>
-                                <button className='bg-sky-600 w-60'
+                                <button className='w-60'
                                     type='submit' 
                                 >
                                     login

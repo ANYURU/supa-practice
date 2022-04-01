@@ -1,29 +1,29 @@
 export const countryCodes = [
     { "name": "Afghanistan", "iso": "AF", "flag": "🇦🇫", "dialCode": "+93" },
-    { "name": "Aland Islands", "iso": "AX", "flag": "🇦🇽", "dialCode": "+358-18" },
+    { "name": "Aland Islands", "iso": "AX", "flag": "🇦🇽", "dialCode": "+35818" },
     { "name": "Albania", "iso": "AL", "flag": "🇦🇱", "dialCode": "+355" },
     { "name": "Algeria", "iso": "DZ", "flag": "🇩🇿", "dialCode": "+213" },
-    { "name": "American Samoa", "iso": "AS", "flag": "🇦🇸", "dialCode": "+1-684" },
+    { "name": "American Samoa", "iso": "AS", "flag": "🇦🇸", "dialCode": "+1684" },
     { "name": "Andorra", "iso": "AD", "flag": "🇦🇩", "dialCode": "+376" },
     { "name": "Angola", "iso": "AO", "flag": "🇦🇴", "dialCode": "+244" },
     { "name": "Anguilla", "iso": "AI", "flag": "🇦🇮", "dialCode": "+1264" },
     { "name": "Antarctica", "iso": "AQ", "flag": "🇦🇶", "dialCode": "+672" },
-    { "name": "Antigua and Barbuda", "iso": "AG", "flag": "🇦🇬", "dialCode": "+1-268" },
+    { "name": "Antigua and Barbuda", "iso": "AG", "flag": "🇦🇬", "dialCode": "+1268" },
     { "name": "Argentina", "iso": "AR", "flag": "🇦🇷", "dialCode": "+54" },
     { "name": "Armenia", "iso": "AM", "flag": "🇦🇲", "dialCode": "+374" },
     { "name": "Aruba", "iso": "AW", "flag": "🇦🇼", "dialCode": "+297" },
     { "name": "Australia", "iso": "AU", "flag": "🇦🇺", "dialCode": "+61" },
     { "name": "Austria", "iso": "AT", "flag": "🇦🇹", "dialCode": "+43" },
     { "name": "Azerbaijan", "iso": "AZ", "flag": "🇦🇿", "dialCode": "+994" },
-    { "name": "Bahamas", "iso": "BS", "flag": "🇧🇸", "dialCode": "+1-242" },
+    { "name": "Bahamas", "iso": "BS", "flag": "🇧🇸", "dialCode": "+1242" },
     { "name": "Bahrain", "iso": "BH", "flag": "🇧🇭", "dialCode": "+973" },
     { "name": "Bangladesh", "iso": "BD", "flag": "🇧🇩", "dialCode": "+880" },
-    { "name": "Barbados", "iso": "BB", "flag": "🇧🇧", "dialCode": "+1-246" },
+    { "name": "Barbados", "iso": "BB", "flag": "🇧🇧", "dialCode": "+1246" },
     { "name": "Belarus", "iso": "BY", "flag": "🇧🇾", "dialCode": "+375" },
     { "name": "Belgium", "iso": "BE", "flag": "🇧🇪", "dialCode": "+32" },
     { "name": "Belize", "iso": "BZ", "flag": "🇧🇿", "dialCode": "+501" },
     { "name": "Benin", "iso": "BJ", "flag": "🇧🇯", "dialCode": "+229" },
-    { "name": "Bermuda", "iso": "BM", "flag": "🇧🇲", "dialCode": "+1-441" },
+    { "name": "Bermuda", "iso": "BM", "flag": "🇧🇲", "dialCode": "+1441" },
     { "name": "Bhutan", "iso": "BT", "flag": "🇧🇹", "dialCode": "+975" },
     { "name": "Bolivia", "iso": "BO", "flag": "🇧🇴", "dialCode": "+591" },
     { "name": "Bonaire, Saint Eustatius and Saba ", "iso": "BQ", "flag": "🇧🇶", "dialCode": "+599" },
@@ -32,7 +32,7 @@ export const countryCodes = [
     { "name": "Bouvet Island", "iso": "BV", "flag": "🇧🇻", "dialCode": "+47" },
     { "name": "Brazil", "iso": "BR", "flag": "🇧🇷", "dialCode": "+55" },
     { "name": "British Indian Ocean Territory", "iso": "IO", "flag": "🇮🇴", "dialCode": "+246" },
-    { "name": "British Virgin Islands", "iso": "VG", "flag": "🇻🇬", "dialCode": "+1-284" },
+    { "name": "British Virgin Islands", "iso": "VG", "flag": "🇻🇬", "dialCode": "+1284" },
     { "name": "Brunei", "iso": "BN", "flag": "🇧🇳", "dialCode": "+673" },
     { "name": "Bulgaria", "iso": "BG", "flag": "🇧🇬", "dialCode": "+359" },
     { "name": "Burkina Faso", "iso": "BF", "flag": "🇧🇫", "dialCode": "+226" },
@@ -41,7 +41,7 @@ export const countryCodes = [
     { "name": "Cameroon", "iso": "CM", "flag": "🇨🇲", "dialCode": "+237" },
     { "name": "Canada", "iso": "CA", "flag": "🇨🇦", "dialCode": "+1" },
     { "name": "Cape Verde", "iso": "CV", "flag": "🇨🇻", "dialCode": "+238" },
-    { "name": "Cayman Islands", "iso": "KY", "flag": "🇰🇾", "dialCode": "+1-345" },
+    { "name": "Cayman Islands", "iso": "KY", "flag": "🇰🇾", "dialCode": "+1345" },
     { "name": "Central African Republic", "iso": "CF", "flag": "🇨🇫", "dialCode": "+236" },
     { "name": "Chad", "iso": "TD", "flag": "🇹🇩", "dialCode": "+235" },
     { "name": "Chile", "iso": "CL", "flag": "🇨🇱", "dialCode": "+56" },
@@ -60,8 +60,8 @@ export const countryCodes = [
     { "name": "Democratic Republic of the Congo", "iso": "CD", "flag": "🇨🇩", "dialCode": "+243" },
     { "name": "Denmark", "iso": "DK", "flag": "🇩🇰", "dialCode": "+45" },
     { "name": "Djibouti", "iso": "DJ", "flag": "🇩🇯", "dialCode": "+253" },
-    { "name": "Dominica", "iso": "DM", "flag": "🇩🇲", "dialCode": "+1-767" },
-    { "name": "Dominican Republic", "iso": "DO", "flag": "🇩🇴", "dialCode": "+1-809 and 1-829" },
+    { "name": "Dominica", "iso": "DM", "flag": "🇩🇲", "dialCode": "+1767" },
+    { "name": "Dominican Republic", "iso": "DO", "flag": "🇩🇴", "dialCode": "+1809 and 1829" },
     { "name": "East Timor", "iso": "TL", "flag": "🇹🇱", "dialCode": "+670" },
     { "name": "Ecuador", "iso": "EC", "flag": "🇪🇨", "dialCode": "+593" },
     { "name": "Egypt", "iso": "EG", "flag": "🇪🇬", "dialCode": "+20" },
@@ -86,13 +86,13 @@ export const countryCodes = [
     { "name": "Gibraltar", "iso": "GI", "flag": "🇬🇮", "dialCode": "+350" },
     { "name": "Greece", "iso": "GR", "flag": "🇬🇷", "dialCode": "+30" },
     { "name": "Greenland", "iso": "GL", "flag": "🇬🇱", "dialCode": "+299" },
-    { "name": "Grenada", "iso": "GD", "flag": "🇬🇩", "dialCode": "+1-473" },
+    { "name": "Grenada", "iso": "GD", "flag": "🇬🇩", "dialCode": "+1473" },
     { "name": "Guadeloupe", "iso": "GP", "flag": "🇬🇵", "dialCode": "+590" },
-    { "name": "Guam", "iso": "GU", "flag": "🇬🇺", "dialCode": "+1-671" },
+    { "name": "Guam", "iso": "GU", "flag": "🇬🇺", "dialCode": "+1671" },
     { "name": "Guatemala", "iso": "GT", "flag": "🇬🇹", "dialCode": "+502" },
-    { "name": "Guernsey", "iso": "GG", "flag": "🇬🇬", "dialCode": "+44-1481" },
+    { "name": "Guernsey", "iso": "GG", "flag": "🇬🇬", "dialCode": "+441481" },
     { "name": "Guinea", "iso": "GN", "flag": "🇬🇳", "dialCode": "+224" },
-    { "name": "Guinea-Bissau", "iso": "GW", "flag": "🇬🇼", "dialCode": "+245" },
+    { "name": "GuineaBissau", "iso": "GW", "flag": "🇬🇼", "dialCode": "+245" },
     { "name": "Guyana", "iso": "GY", "flag": "🇬🇾", "dialCode": "+592" },
     { "name": "Haiti", "iso": "HT", "flag": "🇭🇹", "dialCode": "+509" },
     { "name": "Heard Island and McDonald Islands", "iso": "HM", "flag": "🇭🇲", "dialCode": "+ " },
@@ -105,19 +105,19 @@ export const countryCodes = [
     { "name": "Iran", "iso": "IR", "flag": "🇮🇷", "dialCode": "+98" },
     { "name": "Iraq", "iso": "IQ", "flag": "🇮🇶", "dialCode": "+964" },
     { "name": "Ireland", "iso": "IE", "flag": "🇮🇪", "dialCode": "+353" },
-    { "name": "Isle of Man", "iso": "IM", "flag": "🇮🇲", "dialCode": "+44-1624" },
+    { "name": "Isle of Man", "iso": "IM", "flag": "🇮🇲", "dialCode": "+441624" },
     { "name": "Israel", "iso": "IL", "flag": "🇮🇱", "dialCode": "+972" },
     { "name": "Italy", "iso": "IT", "flag": "🇮🇹", "dialCode": "+39" },
     { "name": "Ivory Coast", "iso": "CI", "flag": "🇨🇮", "dialCode": "+225" },
 
 
-    { "name": "Jamaica", "iso": "JM", "flag": "🇯🇲", "dialCode": "+1-876" },
+    { "name": "Jamaica", "iso": "JM", "flag": "🇯🇲", "dialCode": "+1876" },
 
 
     { "name": "Japan", "iso": "JP", "flag": "🇯🇵", "dialCode": "+81" },
 
 
-    { "name": "Jersey", "iso": "JE", "flag": "🇯🇪", "dialCode": "+44-1534" },
+    { "name": "Jersey", "iso": "JE", "flag": "🇯🇪", "dialCode": "+441534" },
 
 
     { "name": "Jordan", "iso": "JO", "flag": "🇯🇴", "dialCode": "+962" },
@@ -225,7 +225,7 @@ export const countryCodes = [
     { "name": "Montenegro", "iso": "ME", "flag": "🇲🇪", "dialCode": "+382" },
 
 
-    { "name": "Montserrat", "iso": "MS", "flag": "🇲🇸", "dialCode": "+1-664" },
+    { "name": "Montserrat", "iso": "MS", "flag": "🇲🇸", "dialCode": "+1664" },
 
 
     { "name": "Morocco", "iso": "MA", "flag": "🇲🇦", "dialCode": "+212" },
@@ -273,7 +273,7 @@ export const countryCodes = [
     { "name": "North Korea", "iso": "KP", "flag": "🇰🇵", "dialCode": "+850" },
 
 
-    { "name": "Northern Mariana Islands", "iso": "MP", "flag": "🇲🇵", "dialCode": "+1-670" },
+    { "name": "Northern Mariana Islands", "iso": "MP", "flag": "🇲🇵", "dialCode": "+1670" },
 
 
     { "name": "Norway", "iso": "NO", "flag": "🇳🇴", "dialCode": "+47" },
@@ -315,7 +315,7 @@ export const countryCodes = [
     { "name": "Portugal", "iso": "PT", "flag": "🇵🇹", "dialCode": "+351" },
 
 
-    { "name": "Puerto Rico", "iso": "PR", "flag": "🇵🇷", "dialCode": "+1-787 and 1-939" },
+    { "name": "Puerto Rico", "iso": "PR", "flag": "🇵🇷", "dialCode": "+1787 and 1939" },
 
 
     { "name": "Qatar", "iso": "QA", "flag": "🇶🇦", "dialCode": "+974" },
@@ -342,10 +342,10 @@ export const countryCodes = [
     { "name": "Saint Helena", "iso": "SH", "flag": "🇸🇭", "dialCode": "+290" },
 
 
-    { "name": "Saint Kitts and Nevis", "iso": "KN", "flag": "🇰🇳", "dialCode": "+1-869" },
+    { "name": "Saint Kitts and Nevis", "iso": "KN", "flag": "🇰🇳", "dialCode": "+1869" },
 
 
-    { "name": "Saint Lucia", "iso": "LC", "flag": "🇱🇨", "dialCode": "+1-758" },
+    { "name": "Saint Lucia", "iso": "LC", "flag": "🇱🇨", "dialCode": "+1758" },
 
 
     { "name": "Saint Martin", "iso": "MF", "flag": "🇲🇫", "dialCode": "+590" },
@@ -354,7 +354,7 @@ export const countryCodes = [
     { "name": "Saint Pierre and Miquelon", "iso": "PM", "flag": "🇵🇲", "dialCode": "+508" },
 
 
-    { "name": "Saint Vincent and the Grenadines", "iso": "VC", "flag": "🇻🇨", "dialCode": "+1-784" },
+    { "name": "Saint Vincent and the Grenadines", "iso": "VC", "flag": "🇻🇨", "dialCode": "+1784" },
 
 
     { "name": "Samoa", "iso": "WS", "flag": "🇼🇸", "dialCode": "+685" },
@@ -459,7 +459,7 @@ export const countryCodes = [
     { "name": "Tonga", "iso": "TO", "flag": "🇹🇴", "dialCode": "+676" },
 
 
-    { "name": "Trinidad and Tobago", "iso": "TT", "flag": "🇹🇹", "dialCode": "+1-868" },
+    { "name": "Trinidad and Tobago", "iso": "TT", "flag": "🇹🇹", "dialCode": "+1868" },
 
 
     { "name": "Tunisia", "iso": "TN", "flag": "🇹🇳", "dialCode": "+216" },
@@ -471,13 +471,13 @@ export const countryCodes = [
     { "name": "Turkmenistan", "iso": "TM", "flag": "🇹🇲", "dialCode": "+993" },
 
 
-    { "name": "Turks and Caicos Islands", "iso": "TC", "flag": "🇹🇨", "dialCode": "+1-649" },
+    { "name": "Turks and Caicos Islands", "iso": "TC", "flag": "🇹🇨", "dialCode": "+1649" },
 
 
     { "name": "Tuvalu", "iso": "TV", "flag": "🇹🇻", "dialCode": "+688" },
 
 
-    { "name": "U.S. Virgin Islands", "iso": "VI", "flag": "🇻🇮", "dialCode": "+1-340" },
+    { "name": "U.S. Virgin Islands", "iso": "VI", "flag": "🇻🇮", "dialCode": "+1340" },
 
 
     { "name": "Uganda", "iso": "UG", "flag": "🇺🇬", "dialCode": "+256" },

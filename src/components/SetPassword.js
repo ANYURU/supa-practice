@@ -5,6 +5,7 @@ import * as yup from 'yup'
 import logo from '../assets/media/images/logo.png'
 import supabase from '../components/helpers/supabase/supabase'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from './contexts/auth'
 
 
 const passwordValidationSchema = yup.object().shape({
@@ -16,6 +17,7 @@ const passwordValidationSchema = yup.object().shape({
 
 export default function SetPassword() {
     const { phone } = useOTP()
+    const { setUser } = useAuth()
     const navigate = useNavigate()
 
     return (
@@ -27,6 +29,7 @@ export default function SetPassword() {
                 validationSchema={passwordValidationSchema}
                 onSubmit = {async ( values ) => {
                     !phone && navigate('/login')
+
                     const { user, session, error } = await supabase.auth.signUp(
                         {
                             phone: phone,
@@ -47,13 +50,25 @@ export default function SetPassword() {
                                     address:'',
                                     position:'',
                                     workStation:'',
+                                },
+                                completed:false,
+                                createdAt:'',
+                                updatedAt:'',
+                                createdBy:'',
+                                updatedBy:'',
+                                approvedBy:'',
+                                accounts:{
+                                    mwana:true,
+                                    savings: true,
+                                    fixedDeposit: false,
                                 }
-                            } 
+                            },
                         }
                     )
 
                     if(user) {
-                        console.log(user)
+                        setUser(user)
+                        navigate('/home')
                     } 
 
                     if(error) {
@@ -61,6 +76,10 @@ export default function SetPassword() {
                     }
 
                     console.log(session)
+
+                
+
+                    
                 }}
                 >
                     {({ errors, touched, values }) => (

@@ -34,18 +34,9 @@ const Signup = () => {
                 
                 //[*] Navigate to the verification component.
                 navigate('/verify')
-                
                 //[] Invoke the SMS service provider to send a verification code to the phone number.
-                
-
-
-                
-
                 //[] Verify if the generated code and codes are the same. 
                 //[]Return informative feedback.
-
-
-
             }}
         >
             {({
