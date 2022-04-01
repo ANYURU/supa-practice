@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       home
-      <button onClick={() => setUser(false)}> logout</button>
+      <button onClick={() => setUser(false)}>logout</button>
     </div>
   )
 }

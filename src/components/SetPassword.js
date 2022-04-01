@@ -6,8 +6,10 @@ import logo from '../assets/media/images/logo.png'
 
 
 const passwordValidationSchema = yup.object().shape({
-    password: yup.string().min(6, 'Too Short!').required('Password is required!'),
-    passwordConfirm: yup.string().required('Password match is required!')
+    password: yup.string().min(6, 'Minimum 8 characters required!').required('Password is required!'),
+    passwordConfirm: yup.string()
+        .oneOf([yup.ref('password')], 'Password must be the same!')
+        .required('Required!')
 })
 export default function SetPassword() {
     const { phone } = useOTP()
